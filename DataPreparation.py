@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 df = pd.read_excel('ruscorpora_content (1)-вводныеСлова.xlsx', header=None)
 
 # Function to create context, marker, and discourse marker indication
-def process_row(row, marker_idx=3, discourse_marker_idx=-1):
+def process_row(row, marker_idx=1, discourse_marker_idx=-1):
     left_context = " ".join(str(row[col]) for col in range(0, marker_idx) if pd.notna(row[col]))
     marker = str(row[marker_idx]) if pd.notna(row[marker_idx]) else ""
     right_context = " ".join(str(row[col]) for col in range(marker_idx+1, len(row)-1) if pd.notna(row[col]))
@@ -22,10 +22,10 @@ def process_row(row, marker_idx=3, discourse_marker_idx=-1):
     return context, marker, is_discourse_marker
 
 # Define marker column index and discourse marker indication column index
-marker_column = 3
+marker_column = 1
 discourse_marker_column = df.shape[1] - 1  # assuming the last column
 
-# Process dataset
+# Process dataset without augmentation
 processed_data = []
 for _, row in df.iterrows():
     input_text, marker, is_discourse_marker = process_row(row, marker_column, discourse_marker_column)
