@@ -45,6 +45,11 @@ def build_marker_vocab(data):
     return marker2id, id2marker
 
 marker2id, id2marker = build_marker_vocab(train_data)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# Save marker2id for consistent evaluation
+with open("marker2id.json", "w", encoding="utf-8") as f:
+    json.dump(marker2id, f, ensure_ascii=False, indent=4)
 
 def preprocess_data(data, marker2id):
     processed = []
@@ -144,12 +149,15 @@ config = AutoConfig.from_pretrained(model_name)
 config.name_or_path = model_name  # ensure the model name is stored in the config
 config.num_marker_labels = len(marker2id)
 num_marker_labels = len(marker2id)
-model = DMModel(config=config, num_marker_labels=num_marker_labels)
+model_path = "./RussianDMrecognizer"
+model = DMModel.from_pretrained(model_path, config=config, num_marker_labels=config.num_marker_labels)
+
 
 # Move model to GPU if available
 if torch.cuda.is_available():
-    model.to("cuda")
-
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+""" #This is commented because we do not want to train everytime we call this script from main.py
 # =============================================================================
 # STEP 4. Define training arguments and metrics
 # =============================================================================
@@ -203,7 +211,7 @@ torch.save(model.state_dict(), os.path.join(save_path, "pytorch_model.bin"))
 # Save the tokenizer
 tokenizer.save_pretrained(save_path)
 # This should be uncommented when actually updating to HuggingFace
-"""repo_id = "MariaOls/RussianDMrecognizer"
+repo_id = "MariaOls/RussianDMrecognizer"
 create_repo(repo_id, token=huggingface_token, exist_ok=True)
 
 upload_folder(
@@ -213,7 +221,7 @@ upload_folder(
     token=huggingface_token
 )
 
-print(f"Model has been successfully uploaded to: https://huggingface.co/{repo_id}")"""
+print(f"Model has been successfully uploaded to: https://huggingface.co/{repo_id}")
 
 # Evaluate the model
 eval_results = trainer.evaluate()
@@ -221,7 +229,7 @@ print(f"Evaluation results: {eval_results}")
 
 # Push the model to the Hugging Face Hub
 trainer.push_to_hub()
-
+"""
 # =============================================================================
 # STEP 6. Inference: Define a function for custom input
 # =============================================================================
@@ -239,7 +247,7 @@ def classify_marker(sentence):
     marker_text = id2marker.get(marker_pred, "Unknown")
 
     return {"sentence": sentence, "predicted_marker": marker_text, "classification": binary_result}
-
+"""
 # Example classification
 custom_sentence = "Это, конечно, хорошая идея."
 prediction = classify_marker(custom_sentence)
@@ -248,4 +256,4 @@ print("\nCustom Input Analysis:")
 print(f"Sentence: {prediction['sentence']}")
 print(f"Predicted Marker: {prediction['predicted_marker']}")
 print(f"Classification: {prediction['classification']}")
-
+"""
