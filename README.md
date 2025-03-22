@@ -37,31 +37,34 @@ This project is about training a model to recognize when certain Russian words a
 
 ---
 
-## How it works
+## How It Works
 
-You can run `main.py` in your command line or edit it (and run) from a python editor (we used Spyder from Anaconda)
+This is a provisional script designed to test the model on custom input sentences. While it functions as intended, it is not optimized for efficiency and is meant primarily for quick experimentation or demonstration.
+
+You can run `main.py` directly from the command line or modify and execute it using a Python editor (we used Spyder via Anaconda):
 
 ```bash
 $ python main.py
 ```
+The script will identify potential discourse markers in the provided sentences and evaluate whether they are functioning as discourse markers in context. Sentences can be edited directly within the script.
 
-The script will look for Discourse Markers in the given sentences and confirm if they are actually acting as a discourse marker. The sentences can be edited in the script itself.
+For a more efficient and flexible experience, we encourage users to try the hosted model on Hugging Face, where you can test it interactively or integrate it into your own workflows via the API.
 
 ## 🤗 Hugging Face
 Find the fine-tuned model in https://huggingface.co/MariaOls/RussianDMrecognizer
 
 ## 📍 Coming Soon
 
-This model will be soon updated with extra (and better) sentences in the dataset, improved training parameters and new functionalities like asking an input paragraph, splitting it in sentences and analyzing each sentence. Also we want to have a russian language detector and (why not) expand the tool to other languages. 
+This model will soon be updated with an expanded and improved dataset, enhanced training parameters, and new features—including the ability to process full paragraphs by splitting them into sentences and analyzing each one individually. We also plan to integrate a Russian language detector and, potentially, extend the tool to support additional languages.
 
 ## 📦 Dependencies
 You'll need:
-transformers
-datasets
-evaluate
-sklearn
-torch
-pandas
+transformers - 
+datasets - 
+evaluate - 
+sklearn - 
+torch - 
+pandas - 
 huggingface_hub
 
 
