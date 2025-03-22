@@ -39,30 +39,20 @@ This project is about training a model to recognize when certain Russian words a
 
 ## How it works
 
-The project is missing a `main.py` file (coming soon!), but here's how the **ideal user flow** will look:
+You can run `main.py` in your command line or edit it (and run) from a python editor (we used Spyder from Anaconda)
 
 ```bash
 $ python main.py
 ```
 
-The script will:
-
-1. Ask the user to input a text in Russian.
-
-2. Split the input into individual sentences.
-
-3. Search each sentence for discourse marker candidates through the fine-tuned model.
-
-4. Run each candidate through the fine-tuned model.
-
-5. Output whether each candidate is used as a discourse marker or not.
+The script will look for Discourse Markers in the given sentences and confirm if they are actually acting as a discourse marker. The sentences can be edited in the script itself.
 
 ## 🤗 Hugging Face
 Find the fine-tuned model in https://huggingface.co/MariaOls/RussianDMrecognizer
 
 ## 📍 Coming Soon
 
-This model will be soon updated with extra (and better) sentences in the dataset, improved training parameters and new functionalities.
+This model will be soon updated with extra (and better) sentences in the dataset, improved training parameters and new functionalities like asking an input paragraph, splitting it in sentences and analyzing each sentence. Also we want to have a russian language detector and (why not) expand the tool to other languages. 
 
 ## 📦 Dependencies
 You'll need:
