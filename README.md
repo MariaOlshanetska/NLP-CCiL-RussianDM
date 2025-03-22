@@ -1,6 +1,6 @@
 # NLP-CCiL-RussianDM
 Exercise 3: Russian Discourse Markers
-# 🧠 Russian Discourse Marker Classifier
+# Russian Discourse Marker Classifier
 
 Welcome! This repository contains a fine-tuned large language model designed to identify **discourse markers** in **Russian sentences** — that is, words like _например_ or _впрочем_, and whether they're really functioning as discourse markers in context.
 
@@ -43,6 +43,7 @@ The project is missing a `main.py` file (coming soon!), but here's how the **ide
 
 ```bash
 $ python main.py
+```
 
 The script will:
 
@@ -65,19 +66,12 @@ This model will be soon updated with extra (and better) sentences in the dataset
 
 ## 📦 Dependencies
 You'll need:
-
 transformers
-
 datasets
-
 evaluate
-
 sklearn
-
 torch
-
 pandas
-
 huggingface_hub
 
 
