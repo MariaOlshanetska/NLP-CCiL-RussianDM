@@ -37,7 +37,7 @@ This project is about training a model to recognize when certain Russian words a
 
 ---
 
-## 🧠 How it works
+## How it works
 
 The project is missing a `main.py` file (coming soon!), but here's how the **ideal user flow** will look:
 
