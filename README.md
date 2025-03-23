@@ -39,7 +39,7 @@ This project is about training a model to recognize when certain Russian words a
 
 ## How It Works
 
-main.py script under construction to try the model
+main.py script (to try the model) is currently under construction :(
 
 ## 🤗 Hugging Face
 Find the fine-tuned model in https://huggingface.co/MariaOls/RussianDMrecognizer
