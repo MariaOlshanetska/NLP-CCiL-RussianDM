@@ -39,16 +39,7 @@ This project is about training a model to recognize when certain Russian words a
 
 ## How It Works
 
-This is a provisional script designed to test the model on custom input sentences. While it functions as intended, it is not optimized for efficiency and is meant primarily for quick experimentation or demonstration.
-
-You can run `main.py` directly from the command line or modify and execute it using a Python editor (we used Spyder via Anaconda):
-
-```bash
-$ python main.py
-```
-The script will identify potential discourse markers in the provided sentences and evaluate whether they are functioning as discourse markers in context. Sentences can be edited directly within the script.
-
-For a more efficient and flexible experience, we encourage users to try the hosted model on Hugging Face, where you can test it interactively or integrate it into your own workflows via the API.
+main.py script under construction to try the model
 
 ## 🤗 Hugging Face
 Find the fine-tuned model in https://huggingface.co/MariaOls/RussianDMrecognizer
