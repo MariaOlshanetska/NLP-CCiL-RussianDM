@@ -157,7 +157,7 @@ model = DMModel.from_pretrained(model_path, config=config, num_marker_labels=con
 if torch.cuda.is_available():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
-""" #This is commented because we do not want to train everytime we call this script from main.py
+
 # =============================================================================
 # STEP 4. Define training arguments and metrics
 # =============================================================================
@@ -212,14 +212,14 @@ torch.save(model.state_dict(), os.path.join(save_path, "pytorch_model.bin"))
 tokenizer.save_pretrained(save_path)
 # This should be uncommented when actually updating to HuggingFace
 repo_id = "MariaOls/RussianDMrecognizer"
-create_repo(repo_id, token=huggingface_token, exist_ok=True)
+"""create_repo(repo_id, token=huggingface_token, exist_ok=True)
 
 upload_folder(
     repo_id=repo_id,
     folder_path=save_path,
     path_in_repo=".",  # upload all contents to the root of the repo
     token=huggingface_token
-)
+)"""
 
 print(f"Model has been successfully uploaded to: https://huggingface.co/{repo_id}")
 
@@ -229,7 +229,7 @@ print(f"Evaluation results: {eval_results}")
 
 # Push the model to the Hugging Face Hub
 trainer.push_to_hub()
-"""
+
 # =============================================================================
 # STEP 6. Inference: Define a function for custom input
 # =============================================================================
@@ -247,7 +247,7 @@ def classify_marker(sentence):
     marker_text = id2marker.get(marker_pred, "Unknown")
 
     return {"sentence": sentence, "predicted_marker": marker_text, "classification": binary_result}
-"""
+
 # Example classification
 custom_sentence = "Это, конечно, хорошая идея."
 prediction = classify_marker(custom_sentence)
@@ -256,4 +256,4 @@ print("\nCustom Input Analysis:")
 print(f"Sentence: {prediction['sentence']}")
 print(f"Predicted Marker: {prediction['predicted_marker']}")
 print(f"Classification: {prediction['classification']}")
-"""
+
