@@ -2,21 +2,17 @@
 Exercise 3: Russian Discourse Markers
 # Russian Discourse Marker Classifier
 
-Welcome! This repository contains a fine-tuned large language model designed to identify **discourse markers** in **Russian sentences**.
+Welcome! This repository hosts a fine-tuned language model designed to spot Russian Discourse Markers (DMs)—little words like ну, вот, короче, and значит that shape conversation flow and speaker intent. But watch out: they’re tricky and context-dependent!
 
-Discourse markers are words or phrases that manage the flow of conversation, establish connections between parts of a discourse, and signal the speaker's attitudes or intentions.
+Our model uses a smart two-headed approach:
 
-In Russian, discourse markers like "ну", "вот", "короче", and "значит" can be ambiguous when detecting Discourse Markers as they only work as such in some contexts!
+Classification Head: Identifies specific discourse marker types.
 
-Our model has a dual-head design: one head classifies among multiple marker labels, and the other performs a binary classification to determine if the candidate is actually acting as a discourse marker in that sentence.
+Detection Head: Decides if a candidate word truly acts as a DM in context.
 
 ---
 
-## 🚀 Project Overview
-
-This project is about training a model to recognize when certain Russian words are being used as **discourse markers** (DMs), based on sentence context.
-
-### 🧾 What we did:
+## 🧾 What we did (data processing and training):
 
 1. **Collected and curated data**:
    - We started from corpora and dictionaries containing lists and examples of possible discourse markers.
@@ -43,7 +39,9 @@ This project is about training a model to recognize when certain Russian words a
 
 ---
 
-## How It Works
+## How does main.py work
+
+This repository contains a testing script (`main.py`) that loads a fine-tuned token classification model from the Hugging Face Hub.
 
 1. **Model & Tokenizer Loading**  
    - **Tokenizer:**  
@@ -52,7 +50,7 @@ This project is about training a model to recognize when certain Russian words a
      It loads your fine-tuned token classification model from the Hugging Face Hub (with model ID `MariaOls/RussianDMtokenClassifier`). The model's classification head is reinitialized to work with 2 labels (0: non-marker, 1: marker).
 
 2. **Input Sentences**  
-   A list of sentences is hard-coded into the script. You can update the list in the script to analyze any Russian sentences you desire.
+   A list of sentences is hard-coded into the script. You can update this list to analyze any Russian sentences you desire.
 
 3. **Tokenization & Offset Mapping**  
    For each sentence:
