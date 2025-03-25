@@ -50,17 +50,14 @@ This repository contains a testing script (`main.py`) that loads a fine-tuned to
      It loads your fine-tuned token classification model from the Hugging Face Hub (with model ID `MariaOls/RussianDMtokenClassifier`). The model's classification head is reinitialized to work with 2 labels (0: non-marker, 1: marker).
 
 2. **Input Sentences**  
-   A list of sentences is hard-coded into the script. You can update this list to analyze any Russian sentences you desire.
+   A list of sentences is hard-coded into the script (the ones we have used in our report). You can update this list to analyze any Russian sentences you desire.
 
 3. **Tokenization & Offset Mapping**  
    For each sentence:
    - The sentence is tokenized with offset mappings returned. These mappings provide the start and end character indices for each token.
    - The model performs inference and predicts a label for each token.
 
-4. **Candidate Marker Extraction**  
-   Contiguous tokens with the predicted label `1` are grouped together, and their offset mappings are used to extract the exact text of the candidate discourse marker.
-
-5. **Output**  
+4. **Output**  
    The script prints for each sentence:
    - The original input sentence.
    - The extracted discourse marker(s).  
