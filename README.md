@@ -20,9 +20,6 @@ Detection Head: Decides if a candidate word truly acts as a DM in context.
 
 2. **Preprocessed the data**:
    - Turned spreadsheet and text corpus data into a structured format.
-   - Combined each sentence with:
-     - the candidate discourse marker,
-     - a label (`true` or `false`) indicating whether the word functions as a discourse marker.
 
 3. **Split into train/test**:
    - Data was split 80/20 into `train_data.json` and `test_data.json`.
