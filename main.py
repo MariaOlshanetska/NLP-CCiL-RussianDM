@@ -64,7 +64,7 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained(base_model_id, use_fast=True)
     
     # Load your fine-tuned model (from your Hub) for token classification.
-    model_id = "MariaOls/RussianDMtokenClassifier"
+    model_id = "MariaOls/RussianDMrecognizer"
     model = AutoModelForTokenClassification.from_pretrained(model_id, ignore_mismatched_sizes=True)
     model.to(device)
     model.eval()
