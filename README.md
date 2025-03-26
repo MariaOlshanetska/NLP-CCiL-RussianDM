@@ -47,7 +47,7 @@ This repository contains a testing script (`main.py`) that loads a fine-tuned to
    - **Tokenizer:**  
      The script loads a tokenizer from the base model `viktoroo/sberbank-rubert-base-collection3` to ensure proper tokenization with offset mappings.
    - **Model:**  
-     It loads your fine-tuned token classification model from the Hugging Face Hub (with model ID `MariaOls/RussianDMtokenClassifier`). The model's classification head is reinitialized to work with 2 labels (0: non-marker, 1: marker).
+     It loads your fine-tuned token classification model from the Hugging Face Hub (with model ID `MariaOls/RussianDMrecognizer`). The model's classification head is reinitialized to work with 2 labels (0: non-marker, 1: marker).
 
 2. **Input Sentences**  
    A list of sentences is hard-coded into the script (the ones we have used in our report). You can update this list to analyze any Russian sentences you desire.
@@ -71,7 +71,7 @@ pip install torch transformers datasets seqeval huggingface_hub
 ```
 
 ## 🤗 Hugging Face
-Find the fine-tuned model in https://huggingface.co/MariaOls/RussianDMtokenClassifier
+Find the fine-tuned model in https://huggingface.co/MariaOls/RussianDMrecognizer
 
 ## 📍 Coming Soon
 
