@@ -104,7 +104,7 @@ def compute_metrics(p):
 
 # Set up training arguments.
 training_args = TrainingArguments(
-    output_dir="./RussianDMtokenClassifier",
+    output_dir="./RussianDMrecognizer",
     evaluation_strategy="epoch",
     save_strategy="epoch",
     per_device_train_batch_size=8,
@@ -115,7 +115,7 @@ training_args = TrainingArguments(
     load_best_model_at_end=True,
     metric_for_best_model="eval_loss",
     push_to_hub=True,
-    hub_model_id="MariaOls/RussianDMtokenClassifier",
+    hub_model_id="MariaOls/RussianDMrecognizer",
     weight_decay=0.01,
     learning_rate=2e-5,
 )
